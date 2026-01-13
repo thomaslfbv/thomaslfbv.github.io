@@ -144,7 +144,21 @@
             <p>&copy; 2025 MELT'n GO. Tous droits réservés.</p>
         </div>
     </footer>
+<script>
+    let touches = "";
 
+window.addEventListener('keydown', (e) => {
+    touches += e.key;
+    
+    // On ne garde que les 2 dernières touches
+    touches = touches.slice(-2);
+
+    if (touches === "ia") {
+        // C'est cette ligne qui gère la redirection
+        window.location.href = "../index.html"; 
+    }
+});
+</script>
 </body>
 
 </html>
