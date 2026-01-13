@@ -1,3 +1,115 @@
-title {
-    color: #000;
+/* --- 1. Variables (La palette Cyberpunk) --- */
+:root {
+    --bg-color: #050505;       /* Noir profond */
+    --card-bg: #101010;        /* Gris très sombre */
+    --neon-blue: #00f3ff;      /* Cyan électrique */
+    --neon-pink: #bc13fe;      /* Violet/Rose laser */
+    --neon-green: #0aff0a;     /* Vert terminal */
+    --font-main: 'Orbitron', sans-serif;
+    --font-text: 'Roboto Mono', monospace;
+}
+
+/* --- 2. Base --- */
+body {
+    background-color: var(--bg-color);
+    color: white;
+    font-family: var(--font-text);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+/* --- 3. Typographie Néon --- */
+h1 {
+    font-family: var(--font-main);
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.neon-text {
+    color: var(--neon-blue);
+    /* L'effet de lueur (Glow) se fait avec text-shadow */
+    text-shadow: 0 0 5px var(--neon-blue), 0 0 20px var(--neon-blue);
+}
+
+.subtitle {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 50px;
+}
+
+/* --- 4. Les Cartes (Le coeur du design) --- */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive auto */
+    gap: 20px;
+}
+
+.card {
+    background: var(--card-bg);
+    border: 1px solid #333;
+    border-radius: 15px;
+    padding: 30px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease; /* Fluidité de l'animation */
+    position: relative;
+    overflow: hidden;
+}
+
+.card h2 {
+    font-family: var(--font-main);
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.card p {
+    color: #aaa;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+/* --- 5. L'effet Hover (Survol souris) --- */
+.card:hover {
+    transform: translateY(-5px); /* La carte monte un peu */
+    border-color: var(--neon-pink);
+    /* Le fameux Halo Néon */
+    box-shadow: 0 0 15px var(--neon-pink), inset 0 0 10px rgba(188, 19, 254, 0.2);
+}
+
+/* Variante pour la carte Van (Bleu) */
+.card-van:hover {
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 15px var(--neon-blue), inset 0 0 10px rgba(0, 243, 255, 0.2);
+}
+
+/* Variante pour la carte Code (Vert) */
+.card-code:hover {
+    border-color: var(--neon-green);
+    box-shadow: 0 0 15px var(--neon-green), inset 0 0 10px rgba(10, 255, 10, 0.2);
+}
+
+/* --- 6. Le Badge de statut --- */
+.status {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 5px 10px;
+    font-size: 0.7rem;
+    border: 1px solid #333;
+    border-radius: 5px;
+    color: var(--neon-blue);
+}
+
+.status.loading {
+    color: #555;
+    border-color: #555;
 }
