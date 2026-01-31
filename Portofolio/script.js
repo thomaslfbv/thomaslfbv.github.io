@@ -92,3 +92,58 @@
     if (!clickInsideHeader) closeMenu();
   });
 })();
+
+
+/* --- GESTION DES MODALES --- */
+
+// Sélection des éléments
+const modal = document.getElementById('projectModal');
+const modalTitle = document.getElementById('modalTitle');
+const modalDesc = document.getElementById('modalDesc');
+const modalTechs = document.getElementById('modalTechs');
+const modalLink = document.getElementById('modalLink');
+const closeBtn = document.getElementById('closeModal');
+const overlay = document.getElementById('modalOverlay');
+const cards = document.querySelectorAll('.card');
+
+// Fonction pour ouvrir la modal avec les infos du projet
+cards.forEach(card => {
+  card.addEventListener('click', () => {
+    // 1. Récupérer les données de la carte cliquée
+    const title = card.getAttribute('data-title');
+    const desc = card.getAttribute('data-desc');
+    const link = card.getAttribute('data-link');
+    const techs = card.getAttribute('data-tech').split(','); // Transforme "HTML,CSS" en tableau
+
+    // 2. Remplir la modal
+    modalTitle.textContent = title;
+    modalDesc.textContent = desc;
+    modalLink.href = link;
+
+    // Générer les badges technos
+    modalTechs.innerHTML = techs.map(tech => 
+      `<span class="tag">${tech}</span>`
+    ).join('');
+
+    // 3. Afficher la modal
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden'; // Empêche le scroll derrière
+  });
+});
+
+// Fonction pour fermer la modal
+function closeModal() {
+  modal.classList.remove('open');
+  document.body.style.overflow = ''; // Réactive le scroll
+}
+
+// Écouteurs pour fermer (bouton X ou clic en dehors)
+closeBtn.addEventListener('click', closeModal);
+overlay.addEventListener('click', closeModal);
+
+// Fermer avec la touche Echap
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modal.classList.contains('open')) {
+    closeModal();
+  }
+});

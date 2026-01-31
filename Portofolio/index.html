@@ -96,42 +96,54 @@
           <h2 class="section-title" id="projectsTitle">Projets</h2>
           <p class="section-desc">Liste non exhaustive de mes projets</p>
         </div>
+<div class="cards-grid">
+  <article class="card neon neon-cyan" 
+           data-title="Introduction au Reinforcement Learning"
+           data-desc="J'ai d'abord utiliser la librairie gym pour créer un environnement de jeu et ensuite j'ai développé un agent qui apprend à jouer seul via un système de récompenses/punitions. Utilisation de Q-Learning et des bases de réseaux de neurones profonds. J'ai également tester différentes architectures."
+           data-tech="Python,Deep Learning,Gym"
+           data-link="https://github.com/thomaslfbv/SPACEAI"> <h3 class="card-title">Introduction au Reinforcement Learning</h3>
+    <p class="card-desc">
+      Développement de réseaux de neurones simples pour comprendre les fondamentaux de l'apprentissage par renforcement.
+    </p>
+    <ul class="tags">
+      <li class="tag">Python</li>
+      <li class="tag">Deep Learning</li>
+    </ul>
+  </article>
 
-        <div class="cards-grid">
-          <article class="card neon neon-cyan">
-            <h3 class="card-title">Introduction au Reinforcement Learning</h3>
-            <p class="card-desc">
-              Développement de réseaux de neurones simples pour comprendre les fondamentaux de l'apprentissage par renforcement.
-            </p>
-            <ul class="tags" aria-label="Technologies">
-              <li class="tag">Python</li>
-              <li class="tag">Deep Learning</li>
-            </ul>
-          </article>
+  <article class="card neon neon-magenta"
+           data-title="Classification d'Images (CNN)"
+           data-desc="Entraînement d'un modèle Convolutional Neural Network (CNN) sur le dataset perso. Optimisation des paramètres, architecture, vectorisation, etc."
+           data-tech="Python,TensorFlow,Keras,Matplotlib"
+           data-link="https://github.com/thomaslfbv/thomaslfbv">
+    
+    <h3 class="card-title">Classification d'Images (CNN)</h3>
+    <p class="card-desc">
+      Utilisation du Deep Learning pour catégoriser automatiquement des images via des réseaux de neurones convolutifs.
+    </p>
+    <ul class="tags">
+      <li class="tag">Python</li>
+      <li class="tag">TensorFlow/Keras</li>
+    </ul>
+  </article>
 
-          <article class="card neon neon-magenta">
-            <h3 class="card-title">Classification d'Images (CNN)</h3>
-            <p class="card-desc">
-              Utilisation du Deep Learning pour catégoriser automatiquement des images via des réseaux de neurones convolutifs.
-            </p>
-            <ul class="tags" aria-label="Technologies">
-              <li class="tag">Python</li>
-              <li class="tag">TensorFlow/Keras</li>
-            </ul>
-          </article>
-
-          <article class="card neon neon-green">
-            <h3 class="card-title">Portfolio Web</h3>
-            <p class="card-desc">
-              Développement de ce site vitrine hébergé sur GitHub Pages pour présenter mes compétences.
-            </p>
-            <ul class="tags" aria-label="Technologies">
-              <li class="tag">HTML</li>
-              <li class="tag">CSS</li>
-              <li class="tag">JS</li>
-            </ul>
-          </article>
-        </div>
+  <article class="card neon neon-green"
+           data-title="Portfolio Web"
+           data-desc="Conception de A à Z de ce site vitrine. Dans un style néon cyberpunk que j'apprécie tout particulièrement.""
+           data-tech="HTML,CSS,JavaScript"
+           data-link="https://thomaslfbv.github.io/index.html">
+    
+    <h3 class="card-title">Portfolio Web</h3>
+    <p class="card-desc">
+      Développement de ce site vitrine hébergé sur GitHub Pages pour présenter mes compétences.
+    </p>
+    <ul class="tags">
+      <li class="tag">HTML</li>
+      <li class="tag">CSS</li>
+      <li class="tag">JS</li>
+    </ul>
+  </article>
+      </div>
       </div>
     </section>
 
@@ -146,7 +158,7 @@
           <article class="timeline-item" role="listitem">
             <div class="timeline-dot" aria-hidden="true"></div>
             <div class="timeline-card">
-              <h3 class="timeline-title">Bachelor IA (2ème année) — Nexa Digital School</h3>
+              <h3 class="timeline-title">Bachelor IA (2ème année) — Nexa Digital School (2024-2027)</h3>
               <p class="timeline-desc">
                 Approfondissement des fondamentaux IA, mathématiques, data qualité. Projets, travail d'équipe.
               </p>
@@ -156,7 +168,7 @@
           <article class="timeline-item timeline-highlight" role="listitem">
             <div class="timeline-dot" aria-hidden="true"></div>
             <div class="timeline-card">
-              <h3 class="timeline-title">Sauveteur en Mer</h3>
+              <h3 class="timeline-title">Sauveteur en Mer (depuis 2022)</h3>
               <p class="timeline-desc">
                 Expérience exigeante valorisant la <strong>rigueur</strong>, la <strong>gestion de crise</strong> et l’<strong>engagement</strong>.
               </p>
@@ -229,10 +241,24 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <p class="legal">© <span id="year"></span> Thomas Lefebvre — Mentions légales : site portfolio étudiant, sans collecte de données.</p>
-      <a class="footer-link" href="https://github.com/thomaslfbv?tab=repositories" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a class="footer-link" href="https://www.linkedin.com/in/thomas-lefebvre-65a867229/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
   </footer>
+<div id="projectModal" class="modal" aria-hidden="true">
+  <div class="modal-overlay" id="modalOverlay"></div>
+  <div class="modal-content neon-box">
+    <button class="modal-close" id="closeModal" aria-label="Fermer">&times;</button>
+    
+    <h3 id="modalTitle" class="modal-title">Titre du Projet</h3>
+    <p id="modalDesc" class="modal-desc">Description détaillée...</p>
+    
+    <div class="modal-techs" id="modalTechs">
+      </div>
 
-  <script src="./script.js"></script>
+    <a id="modalLink" href="#" target="_blank" class="btn btn-primary btn-sm">Voir le code / Aller sur le projet</a>
+  </div>
+</div>
+
+<script src="./script.js"></script>
 </body>
 </html>
