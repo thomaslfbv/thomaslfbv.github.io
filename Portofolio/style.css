@@ -513,3 +513,35 @@ button:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; scroll-behavior: auto !important; }
 }
+
+
+
+/* Style de l'avatar */
+.avatar-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem; /* Espace sous la photo */
+}
+
+.avatar-img {
+  width: 120px;       /* Taille de la photo */
+  height: 120px;      /* Taille de la photo */
+  border-radius: 50%; /* Rend la photo ronde */
+  object-fit: cover;  /* Évite que la photo soit déformée */
+  
+  /* Bordure Néon (Cyan pour aller avec le reste) */
+  border: 3px solid #00f3ff; 
+  
+  /* Effet de lueur (Glow) */
+  box-shadow: 0 0 15px rgba(0, 243, 255, 0.5);
+  
+  /* Petite animation au survol (optionnel) */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  object-position: center 25%;
+}
+
+/* Animation au survol de la photo */
+.avatar-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(0, 243, 255, 0.8);
+}
