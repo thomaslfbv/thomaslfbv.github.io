@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfolio — Thomas Lefebvre</title>
+  <meta name="description" content="Portfolio de Thomas Lefebvre — AI Student & Chargé de Projet Data Quality." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#accueil" aria-label="Aller à la section Accueil">
+        <span class="brand__title">THOMAS</span>
+        <span class="brand__accent">LFBV</span>
+      </a>
+
+      <div class="header-actions">
+        <button
+          class="theme-toggle"
+          type="button"
+          id="themeToggle"
+          aria-label="Basculer en mode clair"
+          aria-pressed="false"
+        >
+          <span class="theme-toggle__label">Mode</span>
+          <span class="theme-toggle__value" id="themeLabel">Sombre</span>
+        </button>
+
+        <button
+          class="burger"
+          type="button"
+          id="burger"
+          aria-label="Ouvrir le menu"
+          aria-controls="siteNav"
+          aria-expanded="false"
+        >
+          <span class="burger__bar" aria-hidden="true"></span>
+          <span class="burger__bar" aria-hidden="true"></span>
+          <span class="burger__bar" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <nav class="nav" id="siteNav" aria-label="Navigation principale">
+        <a class="nav__link" href="#accueil">Accueil</a>
+        <a class="nav__link" href="#projets">Projets</a>
+        <a class="nav__link" href="#parcours">Parcours</a>
+        <a class="nav__link" href="#competences">Compétences</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="hero" id="accueil" aria-labelledby="heroTitle">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="kicker">AI Student</p>
+          <h1 class="hero-title" id="heroTitle">Thomas Lefebvre</h1>
+          <p class="hero-subtitle">AI Student &amp; Chargé de Projet Data Quality</p>
+          <p class="hero-desc">
+            Étudiant Parisien passionné par la Data Science. Je transforme la donnée brute en décisions stratégiques.
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="mailto:thomas.lefebvre@email.com">Me contacter</a>
+            <a class="btn btn-ghost" href="#projets">Voir mes projets</a>
+          </div>
+
+          <p class="micro">
+            Remplace l’email par le tien dans le lien <code>mailto:</code>.
+          </p>
+        </div>
+
+        <div class="hero-card" role="presentation" aria-hidden="true">
+          <div class="hero-card__glow"></div>
+          <div class="hero-card__content">
+            <p class="hero-card__line"><span>Localisation</span> Paris</p>
+            <p class="hero-card__line"><span>Focus</span> IA / Qualité des données</p>
+            <p class="hero-card__line"><span>Stack</span> Python • SQL • Web</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projets" aria-labelledby="projectsTitle">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title" id="projectsTitle">Projets</h2>
+          <p class="section-desc">Une sélection courte, orientée IA + web.</p>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card neon neon-cyan">
+            <h3 class="card-title">Introduction au Reinforcement Learning</h3>
+            <p class="card-desc">
+              Développement de réseaux de neurones simples pour comprendre les fondamentaux de l'apprentissage par renforcement.
+            </p>
+            <ul class="tags" aria-label="Technologies">
+              <li class="tag">Python</li>
+              <li class="tag">Deep Learning</li>
+            </ul>
+          </article>
+
+          <article class="card neon neon-magenta">
+            <h3 class="card-title">Classification d'Images (CNN)</h3>
+            <p class="card-desc">
+              Utilisation du Deep Learning pour catégoriser automatiquement des images via des réseaux de neurones convolutifs.
+            </p>
+            <ul class="tags" aria-label="Technologies">
+              <li class="tag">Python</li>
+              <li class="tag">TensorFlow/Keras</li>
+            </ul>
+          </article>
+
+          <article class="card neon neon-green">
+            <h3 class="card-title">Portfolio Web</h3>
+            <p class="card-desc">
+              Développement de ce site vitrine hébergé sur GitHub Pages pour présenter mes compétences.
+            </p>
+            <ul class="tags" aria-label="Technologies">
+              <li class="tag">HTML</li>
+              <li class="tag">CSS</li>
+              <li class="tag">JS</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="parcours" aria-labelledby="journeyTitle">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title" id="journeyTitle">Parcours &amp; engagements</h2>
+          <p class="section-desc">Formation + expérience marquante mise en valeur.</p>
+        </div>
+
+        <div class="timeline" role="list">
+          <article class="timeline-item" role="listitem">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-card">
+              <h3 class="timeline-title">Bachelor IA (2ème année) — Nexa Digital School</h3>
+              <p class="timeline-desc">
+                Approfondissement des fondamentaux IA, data et automatisation. Projets orientés application et qualité.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item timeline-highlight" role="listitem">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-card">
+              <h3 class="timeline-title">Sauveteur en Mer</h3>
+              <p class="timeline-desc">
+                Expérience exigeante valorisant la <strong>rigueur</strong>, la <strong>gestion de crise</strong> et l’<strong>engagement</strong>.
+              </p>
+              <div class="chips" aria-label="Points forts">
+                <span class="chip">Rigueur</span>
+                <span class="chip">Gestion de crise</span>
+                <span class="chip">Engagement</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="competences" aria-labelledby="skillsTitle">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title" id="skillsTitle">Compétences</h2>
+          <p class="section-desc">Tech + soft skills, version “cyber”.</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skills-block">
+            <h3 class="skills-subtitle">Tech</h3>
+
+            <div class="skill">
+              <div class="skill-head">
+                <span>Python</span><span class="skill-val">Avancé</span>
+              </div>
+              <div class="skill-bar" aria-hidden="true"><span style="width: 85%"></span></div>
+            </div>
+
+            <div class="skill">
+              <div class="skill-head">
+                <span>SQL</span><span class="skill-val">Confirmé</span>
+              </div>
+              <div class="skill-bar" aria-hidden="true"><span style="width: 75%"></span></div>
+            </div>
+
+            <div class="skill">
+              <div class="skill-head">
+                <span>HTML/CSS</span><span class="skill-val">Confirmé</span>
+              </div>
+              <div class="skill-bar" aria-hidden="true"><span style="width: 70%"></span></div>
+            </div>
+          </div>
+
+          <div class="skills-block">
+            <h3 class="skills-subtitle">Soft skills</h3>
+
+            <div class="badges">
+              <span class="badge">Leadership</span>
+              <span class="badge">Prise de décision</span>
+              <span class="badge">Polyvalence</span>
+              <span class="badge">Capacité d'apprentissage</span>
+            </div>
+
+            <div class="note">
+              <p>
+                Objectif : combiner exigence opérationnelle (qualité) et approche data/IA pour livrer des décisions fiables.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="legal">© <span id="year"></span> Thomas Lefebvre — Mentions légales : site portfolio étudiant, sans collecte de données.</p>
+      <a class="footer-link" href="https://github.com/TON_GITHUB" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>
