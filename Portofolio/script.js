@@ -126,3 +126,31 @@ if (typeof modal.showModal === 'function') {
     if (event.target === modal && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) modal.close();
   });
 }
+
+// Follow the section passing below the sticky header, including the page bottom.
+(() => {
+  const links = [...document.querySelectorAll('.nav__link')];
+  const sections = links.map(link => document.querySelector(link.getAttribute('href')));
+  const header = document.querySelector('.site-header');
+  let scheduled = false;
+  function updateActiveSection() {
+    scheduled = false;
+    const threshold = header.getBoundingClientRect().height + 32;
+    let active = 0;
+    sections.forEach((section, index) => {
+      if (section.getBoundingClientRect().top <= threshold) active = index;
+    });
+    if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 8) active = sections.length - 1;
+    links.forEach((link, index) => {
+      if (index === active) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+  }
+  function scheduleUpdate() {
+    if (!scheduled) { scheduled = true; requestAnimationFrame(updateActiveSection); }
+  }
+  window.addEventListener('scroll', scheduleUpdate, { passive: true });
+  window.addEventListener('resize', scheduleUpdate);
+  window.addEventListener('pageshow', scheduleUpdate);
+  updateActiveSection();
+})();
