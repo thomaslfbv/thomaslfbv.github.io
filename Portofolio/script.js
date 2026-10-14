@@ -154,3 +154,33 @@ if (typeof modal.showModal === 'function') {
   window.addEventListener('pageshow', scheduleUpdate);
   updateActiveSection();
 })();
+
+// Type "hub" to return to the landing page; keep only a temporary prefix.
+(() => {
+  let prefix = '';
+  let lastKeyTime = 0;
+  document.addEventListener('keydown', event => {
+    const editing = event.target instanceof Element &&
+      event.target.closest('input, textarea, select, [contenteditable]:not([contenteditable="false"]), [role="textbox"]');
+    if (event.defaultPrevented || event.isComposing || event.repeat ||
+        event.ctrlKey || event.metaKey || event.altKey || editing) {
+      prefix = '';
+      return;
+    }
+    if (event.key.length !== 1) {
+      prefix = '';
+      return;
+    }
+    const now = performance.now();
+    if (now - lastKeyTime > 2000) prefix = '';
+    lastKeyTime = now;
+    const key = event.key.toLowerCase();
+    prefix += key;
+    if (!'hub'.startsWith(prefix)) prefix = key === 'h' ? 'h' : '';
+    if (prefix === 'hub') {
+      prefix = '';
+      window.location.assign('../index.html');
+    }
+  });
+  window.addEventListener('blur', () => { prefix = ''; });
+})();
