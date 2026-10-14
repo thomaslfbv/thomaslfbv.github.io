@@ -101,6 +101,8 @@ h1, h2, h3 { font-family: var(--title-font); font-weight: 600; line-height: 1.6;
 .tags { list-style: none; padding: 0; margin: auto 0 0; }
 .tag, .badge, .chip { padding: 8px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface-2); font-size: var(--step-0); }
 .tag { font-family: var(--mono-font); overflow-wrap: anywhere; }
+.journey-grid { display: grid; gap: 24px; margin-bottom: 24px; }
+.apprenticeship { border-color: var(--accent-border); }
 .timeline { display: grid; gap: 24px; }
 .timeline-item { display: grid; grid-template-columns: 16px minmax(0, 1fr); gap: 16px; }
 .timeline-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); margin-top: 32px; }
@@ -145,7 +147,7 @@ html:not(.js-enabled) .header-actions { display: none; }
   .hero { padding-block: 96px; }
   .hero-inner { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); }
   .cards-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .skills-grid, .journey-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .section { padding-block: 80px; }
 }
 @media (prefers-reduced-motion: reduce) {
