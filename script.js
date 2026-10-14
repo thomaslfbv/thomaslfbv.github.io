@@ -8,7 +8,7 @@ function setNeonColor(colorVar) {
 }
 
 cards.forEach(card => {
-card.addEventListener('mouseenter', () => {
+const activate = () => {
         if (card.classList.contains('card-code')) {
             setNeonColor('--neon-green'); // Vert pour GitHub
         } else if (card.classList.contains('card-van')) {
@@ -16,7 +16,10 @@ card.addEventListener('mouseenter', () => {
         } else {
             setNeonColor('--neon-pink');  // Rose par défaut (Data)
         }
-    });
+    };
+card.addEventListener('mouseenter', activate);
+card.addEventListener('focus', activate);
+card.addEventListener('blur', () => setNeonColor('--neon-blue'));
 card.addEventListener('mouseleave', () => {
         setNeonColor('--neon-blue'); // Retour au bleu initial
     });

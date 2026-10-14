@@ -18,7 +18,7 @@
 
   <header class="site-header" id="top">
     <div class="container header-inner">
-      <a class="brand" href="../index.html  " aria-label="Aller à la section Accueil">
+      <a class="brand" href="../index.html" aria-label="Retour au hub">
         <span class="brand__title">THOMAS</span>
         <span class="brand__accent">LFBV</span>
       </a>
@@ -76,11 +76,11 @@
 
         </div>
 
-        <div class="hero-card" role="presentation" aria-hidden="true">
+        <div class="hero-card">
           <div class="hero-card__glow"></div>
           <div class="hero-card__content">
             <div class="avatar-container">
-              <img src="avatar.png" alt="Portrait de Thomas Lefebvre" class="avatar-img" />
+              <img src="avatar-240.webp" width="240" height="358" decoding="async" alt="Portrait de Thomas Lefebvre" class="avatar-img" />
             </div>
             <p class="hero-card__line"><span>Localisation</span> Paris</p>
             <p class="hero-card__line"><span>Focus</span> IA / Qualité des données</p>
@@ -99,9 +99,9 @@
 <div class="cards-grid">
   <article class="card neon neon-cyan" 
            data-title="Introduction au Reinforcement Learning"
-           data-desc="J'ai d'abord utiliser la librairie gym pour créer un environnement de jeu et ensuite j'ai développé un agent qui apprend à jouer seul via un système de récompenses/punitions. Utilisation de Q-Learning et des bases de réseaux de neurones profonds. J'ai également tester différentes architectures."
+           data-desc="J'ai d'abord utilisé la librairie gym pour créer un environnement de jeu et ensuite j'ai développé un agent qui apprend à jouer seul via un système de récompenses/punitions. Utilisation de Q-Learning et des bases de réseaux de neurones profonds. J'ai également testé différentes architectures."
            data-tech="Python,Deep Learning,Gym"
-           data-link="https://github.com/thomaslfbv/SPACEAI"> <h3 class="card-title">Introduction au Reinforcement Learning</h3>
+           data-link="https://github.com/thomaslfbv/SPACEAI"> <h3 class="card-title"><a class="project-trigger" href="https://github.com/thomaslfbv/SPACEAI">Introduction au Reinforcement Learning</a></h3>
     <p class="card-desc">
       Développement de réseaux de neurones simples pour comprendre les fondamentaux de l'apprentissage par renforcement.
     </p>
@@ -117,7 +117,7 @@
            data-tech="Python,TensorFlow,Keras,Matplotlib"
            data-link="https://github.com/thomaslfbv/thomaslfbv">
     
-    <h3 class="card-title">Classification d'Images (CNN)</h3>
+    <h3 class="card-title"><a class="project-trigger" href="https://github.com/thomaslfbv/thomaslfbv">Classification d'Images (CNN)</a></h3>
     <p class="card-desc">
       Utilisation du Deep Learning pour catégoriser automatiquement des images via des réseaux de neurones convolutifs.
     </p>
@@ -129,11 +129,11 @@
 
   <article class="card neon neon-green"
            data-title="Portfolio Web"
-           data-desc="Conception de A à Z de ce site vitrine. Dans un style néon cyberpunk que j'apprécie tout particulièrement.""
+           data-desc="Conception de A à Z de ce site vitrine. Dans un style néon cyberpunk que j'apprécie tout particulièrement."
            data-tech="HTML,CSS,JavaScript"
            data-link="https://thomaslfbv.github.io/index.html">
     
-    <h3 class="card-title">Portfolio Web</h3>
+    <h3 class="card-title"><a class="project-trigger" href="https://thomaslfbv.github.io/index.html">Portfolio Web</a></h3>
     <p class="card-desc">
       Développement de ce site vitrine hébergé sur GitHub Pages pour présenter mes compétences.
     </p>
@@ -229,7 +229,7 @@
               <p>
                 Objectif professionnel : combiner exigence opérationnelle (qualité) et approche data/IA pour livrer des décisions fiables.
                 <br><br>
-                Objectif Personel : partir finir mes études en Suisse et m'y installer.
+                Objectif personnel : partir finir mes études en Suisse et m'y installer.
               </p>
             </div>
           </div>
@@ -244,21 +244,15 @@
       <a class="footer-link" href="https://www.linkedin.com/in/thomas-lefebvre-65a867229/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
   </footer>
-<div id="projectModal" class="modal" aria-hidden="true">
-  <div class="modal-overlay" id="modalOverlay"></div>
-  <div class="modal-content neon-box">
-    <button class="modal-close" id="closeModal" aria-label="Fermer">&times;</button>
-    
-    <h3 id="modalTitle" class="modal-title">Titre du Projet</h3>
-    <p id="modalDesc" class="modal-desc">Description détaillée...</p>
-    
-    <div class="modal-techs" id="modalTechs">
-      </div>
-
-    <a id="modalLink" href="#" target="_blank" class="btn btn-primary btn-sm">Voir le code / Aller sur le projet</a>
+<dialog id="projectModal" class="modal" aria-labelledby="modalTitle" aria-describedby="modalDesc">
+  <div class="modal-content">
+    <button class="modal-close" type="button" id="closeModal" aria-label="Fermer le projet" autofocus>&times;</button>
+    <h2 id="modalTitle" class="modal-title">Projet</h2>
+    <p id="modalDesc" class="modal-desc"></p>
+    <div class="modal-techs" id="modalTechs"></div>
+    <a id="modalLink" href="https://github.com/thomaslfbv" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Voir le projet ↗</a>
   </div>
-</div>
-
-<script src="./script.js"></script>
+</dialog>
+<script src="./script.js" defer></script>
 </body>
 </html>

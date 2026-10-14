@@ -1,3 +1,4 @@
+document.documentElement.classList.add("js-enabled");
 (function () {
   const header = document.querySelector(".site-header");
   const burger = document.getElementById("burger");
@@ -58,6 +59,7 @@
     else openMenu();
   }
 
+  matchMedia("(min-width: 921px)").addEventListener("change", closeMenu);
   initTheme();
 
   if (themeToggle) {
@@ -81,7 +83,7 @@
   }
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeMenu();
+    if (e.key === "Escape" && header.classList.contains("is-open")) { closeMenu(); burger.focus(); }
   });
 
   document.addEventListener("click", (e) => {
@@ -94,56 +96,33 @@
 })();
 
 
-/* --- GESTION DES MODALES --- */
-
-// Sélection des éléments
+// Project links remain usable when JavaScript is unavailable.
 const modal = document.getElementById('projectModal');
 const modalTitle = document.getElementById('modalTitle');
 const modalDesc = document.getElementById('modalDesc');
 const modalTechs = document.getElementById('modalTechs');
 const modalLink = document.getElementById('modalLink');
-const closeBtn = document.getElementById('closeModal');
-const overlay = document.getElementById('modalOverlay');
-const cards = document.querySelectorAll('.card');
-
-// Fonction pour ouvrir la modal avec les infos du projet
-cards.forEach(card => {
-  card.addEventListener('click', () => {
-    // 1. Récupérer les données de la carte cliquée
-    const title = card.getAttribute('data-title');
-    const desc = card.getAttribute('data-desc');
-    const link = card.getAttribute('data-link');
-    const techs = card.getAttribute('data-tech').split(','); // Transforme "HTML,CSS" en tableau
-
-    // 2. Remplir la modal
-    modalTitle.textContent = title;
-    modalDesc.textContent = desc;
-    modalLink.href = link;
-
-    // Générer les badges technos
-    modalTechs.innerHTML = techs.map(tech => 
-      `<span class="tag">${tech}</span>`
-    ).join('');
-
-    // 3. Afficher la modal
-    modal.classList.add('open');
-    document.body.style.overflow = 'hidden'; // Empêche le scroll derrière
+if (typeof modal.showModal === 'function') {
+  document.querySelectorAll('.card[data-title]').forEach(card => {
+    card.addEventListener('click', event => {
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      modalTitle.textContent = card.dataset.title;
+      modalDesc.textContent = card.dataset.desc;
+      modalLink.href = card.dataset.link;
+      modalTechs.replaceChildren(...card.dataset.tech.split(',').map(tech => {
+        const tag = document.createElement('span');
+        tag.className = 'tag';
+        tag.textContent = tech.trim();
+        return tag;
+      }));
+      card.querySelector('.project-trigger').focus();
+      modal.showModal();
+    });
   });
-});
-
-// Fonction pour fermer la modal
-function closeModal() {
-  modal.classList.remove('open');
-  document.body.style.overflow = ''; // Réactive le scroll
+  document.getElementById('closeModal').addEventListener('click', () => modal.close());
+  modal.addEventListener('click', event => {
+    const bounds = modal.getBoundingClientRect();
+    if (event.target === modal && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) modal.close();
+  });
 }
-
-// Écouteurs pour fermer (bouton X ou clic en dehors)
-closeBtn.addEventListener('click', closeModal);
-overlay.addEventListener('click', closeModal);
-
-// Fermer avec la touche Echap
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && modal.classList.contains('open')) {
-    closeModal();
-  }
-});
