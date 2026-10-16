@@ -22,7 +22,7 @@ Les chemins relatifs sont compatibles avec un domaine GitHub Pages ou un sous-do
 
 - Le contenu de VAN est dans `VAN/van.html`, les styles dans `VAN/style.css`, les interactions dans `VAN/script.js`.
 - L’annonce de réservation est `https://www.yescapa.fr/campers/102213`.
-- Les photos originales sont conservées. Les versions livrées au navigateur sont dans `VAN/assets/`, `assets/` et `Portofolio/avatar-240.webp`.
+- Pour VAN, seules les cinq photos utilisées (départ, coin repas, rangements, bar et nuit), leurs variantes WebP et le logo sont conservés. Les cinq originaux nécessaires à la régénération restent disponibles ; les autres photos et anciennes variantes ont été retirées. Les versions livrées au navigateur sont dans `VAN/assets/`, `assets/` et `Portofolio/avatar-240.webp`.
 - Pour régénérer les images : `python3 scripts/optimize_images.py` (Pillow requis uniquement pour cette opération).
 - Pour vérifier les références locales : `python3 scripts/check_site.py` (bibliothèque standard Python).
 - Pour vérifier le JavaScript : `node --check script.js`, `node --check VAN/script.js`, `node --check Portofolio/script.js`.
